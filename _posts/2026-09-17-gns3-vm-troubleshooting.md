@@ -35,9 +35,9 @@ GNS3 VM을 VMware Workstation과 연동하는 과정에서 두 가지 문제가 
 
 GNS3를 먼저 설치한 뒤 GNS3 VM을 VMware와 연동하려고 하자 `vmrun.exe`를 찾을 수 없다는 오류가 발생하였습니다.
 
-[vmrun.exe 오류 화면 이미지]
+![GNS3 vmrun 오류 화면](/assets/images/gns3-vm/vmrun-error.png)
 
-*그림 2. GNS3에서 vmrun.exe를 찾지 못하는 오류*
+*그림 2. GNS3에서 VMware vmrun 도구를 찾지 못하는 오류*
 
 ### 2.2 vmrun.exe란?
 
