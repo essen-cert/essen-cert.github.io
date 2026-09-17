@@ -8,7 +8,7 @@ title: "About"
 
 **Security is Essential.**
 
-<div style="font-size: 0.85em;">
+<div style="font-size: 0.80em;">
 
 <p>
 ESSEN-CERT는 Essence / Essential의 <strong>ESSEN</strong>와<br>
