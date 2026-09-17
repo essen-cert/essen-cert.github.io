@@ -57,7 +57,7 @@ plugins:
 author:
   name   : "ESSEN-CERT"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Security is Essential. 보안의 본질을 탐구하고 분석합니다."
+  bio    : "Security is Essential.<br>보안의 본질을 탐구하고 분석합니다."
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
