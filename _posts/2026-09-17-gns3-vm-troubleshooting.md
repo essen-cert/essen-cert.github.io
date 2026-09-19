@@ -44,7 +44,6 @@ GNS3 VM을 VMware와 연동하는 과정에서 다음과 같은 오류가 발생
 `VMware vmrun tool could not be found`
 
 ![GNS3 vmrun 오류 화면](/assets/images/gns3-vm/vmrun-error.png)
-
 *GNS3에서 VMware vmrun 도구를 찾지 못하는 오류*
 
 최초에는 VMware Workstation을 아직 설치하지 않은 상태였기 때문에 VMware 관련 구성 요소가 존재하지 않아 발생한 오류로 판단하였습니다.
@@ -75,7 +74,6 @@ GNS3 역시 VMware에서 실행되는 GNS3 VM을 제어하기 위해 `vmrun.exe`
 VMware Workstation의 실제 설치 경로를 확인한 결과 `vmrun.exe` 파일 자체는 정상적으로 존재하고 있었습니다.
 
 ![vmrun.exe 파일 경로 확인](/assets/images/gns3-vm/vmrun-path.png)
-
 *VMware Workstation 설치 경로에 존재하는 vmrun.exe*
 
 즉, 오류 메시지만 보면 `vmrun` 도구가 설치되지 않은 것처럼 보일 수 있지만 실제로는 실행 파일이 존재하는 상태였습니다.
@@ -86,7 +84,6 @@ VMware Workstation의 실제 설치 경로를 확인한 결과 `vmrun.exe` 파�
 ### 2.5. VMware 설치 경로와 GNS3의 vmrun 탐색
 
 ![VMware Workstation 버전](/assets/images/gns3-vm/vmware-version.png)
-
 *VMware Workstation 버전*
 
 사용 중인 VMware Workstation 버전에서는 `vmrun.exe`가 다음 VMware Workstation 설치 경로에 존재하였습니다.
@@ -96,7 +93,6 @@ VMware Workstation의 실제 설치 경로를 확인한 결과 `vmrun.exe` 파�
 설치 오류로 인해 vmrun.exe가 작동하지 않는지 확인했으나 정상적으로 작동하는 것을 확인하였습니다.
 
 ![vmrun.exe 실행 이미지](/assets/images/gns3-vm/vmrun-cmd.png)
-
 *vmrun.exe 실행*
 
 실행 파일이 존재함에도 GNS3에서 찾지 못하고 있었기 때문에 명령 프롬프트에서도 `vmrun`을 정상적으로 탐색할 수 있는지 확인하였습니다.
@@ -116,7 +112,6 @@ echo %PATH% | findstr /I "VMware"
 ```
 
 ![vmrun.exe cmd 경로 탐색](/assets/images/gns3-vm/vmrun-cmd-path.png)
-
 *vmrun.exe cmd 경로 탐색*
 
 확인 결과 vmrun.exe 파일 자체는 VMware Workstation 설치 디렉터리에 존재했지만 해당 VMware Workstation 경로가 Path에 등록되어 있지 않은 상태였습니다.
@@ -135,7 +130,6 @@ $path = [Environment]::GetEnvironmentVariable("Path", "Machine")
 ```
 
 ![환경 변수 Path 설정 이미지](/assets/images/gns3-vm/vmrun-add-path.png)
-
 *VMware Workstation 설치 경로를 Windows Path 환경 변수에 추가*
 
 Path 환경 변수에 해당 디렉터리를 등록하면 실행 파일의 전체 경로를 직접 입력하지 않아도 Windows에서 해당 경로의 실행 파일을 검색할 수 있습니다.
@@ -143,7 +137,6 @@ Path 환경 변수에 해당 디렉터리를 등록하면 실행 파일의 전�
 환경 변수를 설정한 후 새로운 명령 프롬프트를 실행하여 vmrun.exe가 정상적으로 검색되는지 다시 확인하였습니다.
 
 ![환경 변수 추가 후 확인](/assets/images/gns3-vm/vmrun-add-path-where.png)
-
 *환경 변수 추가 후 경로 탐색*
 
 이를 통해 Windows에서 vmrun.exe를 정상적으로 탐색할 수 있는 상태가 되었음을 확인하였습니다.
@@ -154,7 +147,6 @@ Path 환경 변수에 해당 디렉터리를 등록하면 실행 파일의 전�
 ### 2.7. 결과
 
 ![vmrun 오류 해결](/assets/images/gns3-vm/vmrun-finish.png)
-
 *vmrun 오류 해결*
 
 환경 변수 Path에 VMware Workstation 설치 경로를 추가한 이후 기존의 `VMware vmrun tool could not be found` 오류가 더 이상 발생하지 않았습니다. 만, 진짜 문제는 그 다음이었습니다.
