@@ -174,15 +174,18 @@ VBS가 Windows Hypervisor 실행에 영향을 주고 있는지 확인하기 위�
 
 레지스트리를 직접 변경하기 전에 문제가 발생할 경우 기존 상태로 복구할 수 있도록 Device Guard 설정을 먼저 백업한 후 비활성화했다.
 
-```cmd #DeviceGuard 백업
+*DeviceGuard 백업*
+```cmd
 reg export "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard" "%USERPROFILE%\Desktop\DeviceGuard-backup.reg"
 ```
 
-```cmd #EnableVirtualizationBasedSecurity 비활성화
+*EnableVirtualizationBasedSecurity 비활성화*
+```cmd
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard" /v EnableVirtualizationBasedSecurity /t REG_DWORD /d 0 /f
 ```
 
-```cmd #확인
+*확인*
+```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard" /v EnableVirtualizationBasedSecurity
 ```
 
@@ -218,14 +221,15 @@ VBS를 비활성화했기 때문에 Windows Hypervisor의 실행 상태에도 �
 
 VBS를 비활성화한 이후에도 Windows Hypervisor가 계속 감지되었기 때문에, 이번에는 부팅 과정에서 Windows Hypervisor가 실행되지 않도록 직접 설정해 보기로 했다.
 
-```cmd #Windows Hypervisor 부팅 시 자동 실행 비활성화
+*Windows Hypervisor 부팅 시 자동 실행 비활성화*
+```cmd
 bcdedit /set hypervisorlaunchtype off
 ```
 
 `hypervisorlaunchtype`은 Windows 부팅 시 Hypervisor의 실행 여부를 제어하는 BCD(Boot Configuration Data) 설정이다.
 
-
-```cmd #확인
+*확인*
+```cmd
 bcdedit /enum {current} | findstr /I "hypervisorlaunchtype"
 ```
 
@@ -334,7 +338,8 @@ bcdedit /enum all | findstr /I "hypervisor vsmlaunch isolatedcontext"
 
 Device Guard 하위 설정을 추가로 확인하는 과정에서 Windows Hello 관련 레지스트리 값이 활성화되어 있는 것을 확인하였다.
 
-```cmd #Windows Hello 활성화 여부 확인
+*Windows Hello 활성화 여부 확인*
+```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\WindowsHello" /v Enabled
 ```
 
@@ -344,7 +349,8 @@ reg query "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\WindowsHe
 Enabled    REG_DWORD    0x1
 ```
 
-```cmd #Windows Hello 비활성화
+*Windows Hello 비활성화*
+```cmd
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\WindowsHello" /v Enabled /t REG_DWORD /d 0 /f
 ```
 
