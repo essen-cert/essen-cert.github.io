@@ -6,3 +6,14 @@
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
+
+/* 본문 영역 너비 확장 */
+@media (min-width: 1024px) {
+  .page {
+    width: calc(100% - 200px);
+  }
+
+  .page__inner-wrap {
+    max-width: 900px;
+  }
+}
