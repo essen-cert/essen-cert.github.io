@@ -1,5 +1,5 @@
 ---
-title: "[GNS3] Windows 11에서 GNS3 VM 구축 시 vmrun 및 Hypervisor 오류 해결"
+title: "[GNS3] Windows 11에서 GNS3 VM 구축 시 vmrun 및 Hypervisor 오류 해결:vmrun"
 date: 2026-09-17
 categories:
   - Lab
