@@ -95,7 +95,7 @@ VMware Workstation의 실제 설치 경로를 확인한 결과 `vmrun.exe` 파�
 
 실행 파일이 존재함에도 GNS3에서 찾지 못하고 있었기 때문에 명령 프롬프트에서도 `vmrun`을 정상적으로 탐색할 수 있는지 확인했다.
 
-```cmd
+```batch
 where vmrun
 ```
 
@@ -105,7 +105,7 @@ where vmrun
 
 추가로 Path 환경 변수에 VMware 관련 경로가 포함되어 있는지 확인했다.
 
-```cmd
+```batch
 echo %PATH% | findstr /I "VMware"
 ```
 
