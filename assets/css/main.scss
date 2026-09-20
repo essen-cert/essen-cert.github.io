@@ -19,3 +19,18 @@
     max-width: 1000px;
   }
 }
+
+/* 코드 블록 배경 통일 */
+div.highlighter-rouge,
+figure.highlight,
+.highlight {
+  background: #263238;
+  border-radius: 4px;
+}
+
+.highlight pre {
+  background: #263238;
+  padding: 1em;
+  margin: 0;
+  overflow-x: auto;
+}
